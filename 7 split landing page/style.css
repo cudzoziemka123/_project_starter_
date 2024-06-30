@@ -99,6 +99,15 @@ h1 {
   background-color: var(--right-bg-color);
 }
 
+.hover-left .left::before {
+  background-color: transparent;
+  transition: background-color var(--speed) ease-in-out;
+}
+.hover-right .right::before {
+  background-color: transparent;
+  transition: background-color var(--speed) ease-in-out;
+}
+
 .split.right,
 .split.left,
 .split.right::before,
