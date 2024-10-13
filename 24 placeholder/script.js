@@ -2,11 +2,11 @@ const header = document.getElementById('header')
 const title = document.getElementById('title')
 const excerpt = document.getElementById('excerpt')
 const profile_img = document.getElementById('profile_img')
-const name = document.getElementById('name')
+const nameA = document.getElementById('name')
 const date = document.getElementById('date')
 
-const animated_bgs = document.querySelectorAll('.animates-bg')
-const animated_bg_texts = document.querySelectorAll('.animates-bg-text')
+const animated_bgs = document.querySelectorAll('.animated-bg')
+const animated_bg_texts = document.querySelectorAll('.animated-bg-text')
 
 setTimeout(getData, 2500)
 
@@ -19,7 +19,7 @@ function getData() {
     'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, tempora?'
   profile_img.innerHTML =
     '<img src="https://randomuser.me/api/portraits/men/45.jpg" alt="" />'
-  name.innerHTML = 'John Doe'
+  nameA.innerHTML = 'John Doe'
   date.innerHTML = 'Oct 20, 2020'
 
   animated_bgs.forEach((bg) => {
@@ -27,6 +27,6 @@ function getData() {
   })
 
   animated_bg_texts.forEach((bg_text) =>
-    bg_text.classList.remove('.animated_bg_text')
+    bg_text.classList.remove('.animated-bg-text')
   )
 }
