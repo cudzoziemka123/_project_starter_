@@ -16,7 +16,7 @@ const colors = {
   fighting: "#E6E0D4",
   normal: "#F5F5F5",
 };
-
+const main_types = Object.keys(colors);
 const fetchPokemons = async () => {
   for (let i = 1; i <= pokemon_count; i++) {
     await getPokemon(i);
@@ -33,17 +33,23 @@ const getPokemon = async (id) => {
 function createPokemonCard(pokemon) {
   const card = document.createElement("div");
   card.classList.add("pokemon");
+  const id = pokemon.id.toString().padStart(3, "0");
+  const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+  const poke_types = pokemon.types.map((type) => type.type.name);
+  const type = main_types.find((type) => poke_types.indexOf(type) > -1);
+  const color = colors[type];
+  card.style.backgroundColor = color;
   const pokemonInnerHTML = `
    <div class="img-container">
         <img
-        src="https://images.unsplash.com/photo-1729508418289-75baec809821?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0NHx8fGVufDB8fHx8fA%3D%3D"
-        alt="Bulba"
+        src="https://veekun.com/dex/media/pokemon/main-sprites/ultra-sun-ultra-moon/${pokemon.id}.png"
+        alt="${pokemon.name}"
           />
     </div>
     <div class="info">
-        <span class="number">#001</span>
-        <h3>Bulbasaur</h3>
-        <small class="type">Type: <span>grass</span></small>
+        <span class="number">#${id}</span>
+        <h3 class="name">${name}</h3>
+        <small class="type">Type: <span>${type}</span></small>
     </div>
    `;
 
