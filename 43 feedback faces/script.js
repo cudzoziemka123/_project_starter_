@@ -5,11 +5,7 @@ const panel = document.querySelector('#panel')
 let selectedRating = 'Satisfied'
 
 ratingsContainer.addEventListener('click', (e) => {
-  if (
-    e.target.parentNode.classList.contains('rating')
-    // ||
-    // e.target.classList.contains('rating')
-  ) {
+  if (e.target.parentNode.classList.contains('rating')) {
     removeActive()
     e.target.parentNode.classList.add('active')
     selectedRating = e.target.nextElementSibling.innerHTML
